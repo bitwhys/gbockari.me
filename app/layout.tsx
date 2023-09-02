@@ -6,7 +6,8 @@ import { Inter } from 'next/font/google'
 import { Provider } from '@/components/provider'
 import { Analytics } from '@/components/analytics'
 import { ModeToggle } from '@/components/mode-toggle'
-import { bluuNextFont, geliatFont, ibmPlexMono, visbyFont } from '@/styles/fonts'
+import { bluuNextFont, bluuNextTitlingFont, geliatFont, ibmPlexMono, jetBrainsMono, visbyFont } from '@/styles/fonts'
+import { cn } from '@/lib/utils'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -23,21 +24,26 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body
-        className={`antialiased min-h-screen font-medium bg-background font-sans ${visbyFont.variable} ${bluuNextFont.variable} ${ibmPlexMono.variable}`}
+        className={cn(
+          visbyFont.variable,
+          geliatFont.variable,
+          ibmPlexMono.variable,
+          `antialiased min-h-screen bg-background font-sans `,
+        )}
       >
         <Provider attribute="class" defaultTheme="system" enableSystem>
-            <div className='max-w-6xl mx-auto py-10 px-4'>
-              <header >
-                <div className="flex items-center justify-between">
-                  <nav className="text-lg font-semibold space-x-6">
-                    <Link href="/">Home</Link>
-                    <Link href="/about">Portfolio</Link>
-                    <Link href="/about">Blog</Link>
-                  </nav>
-                  <ModeToggle/>
-                </div>
-              </header>
-            </div>
+          <div className="max-w-6xl mx-auto py-10 px-4">
+            <header>
+              <div className="flex items-center justify-between">
+                <nav className="text-lg font-semibold space-x-6 text-11">
+                  <Link href="/">Home</Link>
+                  <Link href="/about">Portfolio</Link>
+                  <Link href="/about">Blog</Link>
+                </nav>
+                <ModeToggle />
+              </div>
+            </header>
+          </div>
           <main>{children}</main>
           <Analytics />
         </Provider>

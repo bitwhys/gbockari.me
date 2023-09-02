@@ -1,5 +1,5 @@
 import localFont from 'next/font/local'
-import { IBM_Plex_Mono } from 'next/font/google'
+import { IBM_Plex_Mono, JetBrains_Mono } from 'next/font/google'
 
 export const geliatFont = localFont({
   src: [
@@ -110,7 +110,7 @@ export const visbyFont = localFont({
       weight: '600',
     },
   ],
-  variable: '--font-sans',
+  variable: '--font-heading',
   display: 'swap',
 })
 
@@ -118,22 +118,43 @@ export const bluuNextFont = localFont({
   src: [
     {
       path: '../public/fonts/bluu-next/bluunext-bold-webfont.woff',
-      weight: '700',
+      weight: '400',
     },
     {
       path: '../public/fonts/bluu-next/bluunext-bold-webfont.woff2',
-      weight: '700',
+      weight: '400',
     },
     {
       path: '../public/fonts/bluu-next/bluunext-bold.ttf',
-      weight: '700',
+      weight: '400',
     },
   ],
   variable: '--font-heading',
 })
+export const bluuNextTitlingFont = localFont({
+  src: [
+    {
+      path: '../public/fonts/bluu-next/bluunext-titling.woff',
+      weight: '400',
+    },
+    {
+      path: '../public/fonts/bluu-next/bluunext-titling.woff2',
+      weight: '400',
+    },
+    {
+      path: '../public/fonts/bluu-next/bluunext-titling.ttf',
+      weight: '400',
+    },
+  ],
+  variable: '--font-heading-titling',
+})
 
 export const ibmPlexMono = IBM_Plex_Mono({
   subsets: ['latin'],
-  weight: ['300','400', '500', '700'],
+  weight: ['300', '400', '500', '700'],
+  variable: '--font-mono',
+})
+export const jetBrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
   variable: '--font-mono',
 })
