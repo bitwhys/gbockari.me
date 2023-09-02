@@ -23,21 +23,21 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body
-        className={`antialiased min-h-screen font-medium bg-background dark:bg-slate-950 font-sans text-slate-900 dark:text-slate-50 ${visbyFont.variable} ${bluuNextFont.variable} ${ibmPlexMono.variable}`}
+        className={`antialiased min-h-screen font-medium bg-background font-sans ${visbyFont.variable} ${bluuNextFont.variable} ${ibmPlexMono.variable}`}
       >
         <Provider attribute="class" defaultTheme="system" enableSystem>
-          <div className="max-w-6xl mx-auto py-10 px-4 z-50">
-            <header>
-              <div className="flex items-center justify-between">
-                <nav className="text-lg font-semibold space-x-6">
-                  <Link href="/">Home</Link>
-                  <Link href="/about">Portfolio</Link>
-                  <Link href="/about">Blog</Link>
-                </nav>
-                <ModeToggle />
-              </div>
-            </header>
-          </div>
+            <div className='max-w-6xl mx-auto py-10 px-4'>
+              <header >
+                <div className="flex items-center justify-between">
+                  <nav className="text-lg font-semibold space-x-6">
+                    <Link href="/">Home</Link>
+                    <Link href="/about">Portfolio</Link>
+                    <Link href="/about">Blog</Link>
+                  </nav>
+                  <ModeToggle/>
+                </div>
+              </header>
+            </div>
           <main>{children}</main>
           <Analytics />
         </Provider>

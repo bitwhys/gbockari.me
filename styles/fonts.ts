@@ -134,6 +134,6 @@ export const bluuNextFont = localFont({
 
 export const ibmPlexMono = IBM_Plex_Mono({
   subsets: ['latin'],
-  weight: ['400', '700'],
+  weight: ['300','400', '500', '700'],
   variable: '--font-mono',
 })

@@ -1,12 +1,13 @@
 import { allPosts } from '@/.contentlayer/generated'
 import Link from 'next/link'
-import { Button, Card, Flex, Heading, Text } from '@radix-ui/themes'
+import { Button, Card, Flex, } from '@radix-ui/themes'
+import Balancer from 'react-wrap-balancer'
 
 export default function Home() {
   return (
     <div className="">
       <svg
-        className="absolute inset-0 -z-10 h-full w-full stroke-[var(--gray-6)] [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
+        className="absolute inset-0 -z-10 h-full w-full stroke-[var(--gray-6)]  dark:stroke-[var(--gray-a5)] [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)] dark:[mask-image:radial-gradient(100%_100%_at_top_right,black,transparent)]"
         aria-hidden="true"
       >
         <defs>
@@ -21,72 +22,76 @@ export default function Home() {
             <path d="M100 200V.5M.5 .5H200" fill="none" />
           </pattern>
           <pattern id="hexPattern" width="100" height="100" patternUnits="userSpaceOnUse">
-            <polygon points="50,0 100,25 100,75 50,100 0,75 0,25" fill="none" />
+            <polygon points="50,0 50,25 100,75 50,100 0,75 0,25" fill="none"></polygon>{' '}
           </pattern>
           <linearGradient id="grad">
             <stop offset="0%" stop-color="#FF5733" />
             <stop offset="100%" stop-color="#FFC300" />
           </linearGradient>
         </defs>
-        {/*<svg x="50%" y={-1} className="overflow-visible fill-gray-50">*/}
-        {/*  <path*/}
-        {/*    d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"*/}
-        {/*    strokeWidth={0}*/}
-        {/*  />*/}
-        {/*</svg>*/}
-        {/*<rect width="100%" height="100%" strokeWidth={0} fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" />*/}
-        <rect x="0" y="0" width="100%" height="100%" fill="url(#hexPattern)" />
+        <svg x="50%" y={-1} className="overflow-visible fill-[var(--gray-a3)]">
+          <path
+            d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
+            strokeWidth={0}
+          />
+        </svg>
+        <rect width="100%" height="100%" strokeWidth={0} fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" />
+        {/*<rect x="0" y="0" width="100%" height="100%" fill="url(#hexPattern)" />*/}
       </svg>
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
-          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+          className="pointer-events-none  absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"
         >
           <div
-            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#93C926] to-[#8AE8FF] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[var(--lime-a10)] to-[var(--sky-a10)]  dark:from-[var(--lime-a7)] dark:to-[var(--sky-a7)]  sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
             style={{
               clipPath:
                 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
             }}
           />
         </div>
-        <div className="py-20">
-          <h1 className="text-center pb-36 max-w-3xl leading-10 mx-auto text-4xl tracking-tight text-gray-900 sm:text-7xl">
-            Software engineer, NLP enthusiast & sports data junkie.
+        <div className="relative">
+          <h1 className="text-center font-light bg-gradient-to-br from-[var(--gray-12)] via-[var(--gray-11)] to-[var(--gray-10)] bg-clip-text text-transparent pb-36 max-w-5xl leading-10 mx-auto text-3xl tracking-tight sm:text-6xl">
+            <Balancer>Software engineer, NLP enthusiast & sports data junkie.</Balancer>
           </h1>
           <div className="flex gap-x-3 max-w-6xl mx-auto">
             <Card className="bg-white  w-[700px] shrink-0 p-4">
               <Flex direction="column" justify="between" className="h-full relative">
-                <div className="absolute bottom-0 right-0 w-1/2">
-                  <img src="/hero-globe.png" alt="" />
-                </div>
+                {/*<div className="absolute bottom-0 right-0 w-1/2">*/}
+                {/*  <img src="/hero-globe.png" alt="" />*/}
+                {/*</div>*/}
                 <div className="relative">
                   <div className="flex mb-4">
                     <div className="mr-4 flex-shrink-0">
                       <span className="inline-block h-14 w-14 overflow-hidden rounded-full bg-gray-100">
-                        <svg className="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z" />
-                        </svg>
+                        <img src="/avatar.png" alt="" />
                       </span>
                     </div>
                     <div>
-                      <h4 className="text-base font-bold">George Bockari</h4>
+                      <h2 className="">George Bockari</h2>
                       <div className="mt-1 flex items-center gap-x-1.5">
-                        <div className="flex-none rounded-full bg-emerald-500/20 p-1">
-                          <div className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                        <div className="flex-none rounded-full bg-[var(--cyan-a5)] p-1">
+                          <div className="h-1.5 w-1.5 rounded-full bg-[var(--cyan-9)]" />
                         </div>
-                        <p className="text-xs leading-5 text-gray-500">Available for freelance projects</p>
+                        <p>
+                          Available for consulting
+                        </p>
                       </div>
                     </div>
                   </div>
-                  <Text className="font-medium font-mono" color="gray" size="4">
+                  <p  className="font-mono font-light">
                     Currently freelancing as a product designer and front-end developer. Design advisor to @circular and
                     @acme. Formerly design lead at Untitled.{' '}
-                  </Text>
+                  </p>
                 </div>
                 <div className="relative">
-                  <div className="font-medium">Based in Atlanta, Georgia USA</div>
-                  <div className="text-sm font-mono"> NYC, USA · 40.6892° N, 74.0445° W</div>
+                  <h2  className="font-medium">
+                    Based in Atlanta, Georgia USA
+                  </h2>
+                  <p className="font-mono">
+                    NYC, USA · 40.6892° N, 74.0445° W
+                  </p>
                 </div>
               </Flex>
             </Card>
@@ -95,48 +100,59 @@ export default function Home() {
                 <Card className="basis-3/5 aspect-square flex flex-col justify-between">
                   <Flex direction="column" className="h-full" justify="between">
                     <svg
-                      className="h-8 w-8"
+                      className="h-8 w-8 text-[var(--blue-8)]"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
                       viewBox="0 0 256 256"
                     >
-                      <path d="M251.09,67.41A12,12,0,0,0,240,60H211.82a52.73,52.73,0,0,0-43.67-24,50.85,50.85,0,0,0-36.6,14.85A51.87,51.87,0,0,0,116,88v.78c-36.83-11.57-66.38-40.9-66.7-41.23a12,12,0,0,0-20.47,7.38C22.52,125.1,53.48,162.72,70.89,178.05,56.4,192.83,36,200.68,35.8,200.76A12,12,0,0,0,30,218.66C32,221.55,43.44,236,80,236c72.25,0,132.7-55.26,139.6-126.63l28.88-28.88A12,12,0,0,0,251.09,67.41ZM199.52,95.52a11.93,11.93,0,0,0-3.49,7.72C192.14,164.23,141.18,212,80,212a90.78,90.78,0,0,1-12.49-.79C78,204.55,89.72,195.07,98,182.66a12,12,0,0,0-3.9-17c-.12-.07-12.33-7.49-23.43-24.42s-17.26-37-18.46-59.78C69.37,94.4,96,110.79,126,115.84A12,12,0,0,0,140,104V88a28,28,0,0,1,8.41-20.07A27.07,27.07,0,0,1,167.86,60a28.83,28.83,0,0,1,25.82,16.81,12,12,0,0,0,11,7.19H211Z"></path>
+                      <path
+                        d="M240,72l-32,32c-4.26,66.84-60.08,120-128,120-32,0-40-12-40-12s32-12,48-36c0,0-55.15-32-47.22-120,0,0,39.66,40,87.22,48V88c0-22,18-40.27,40-40a40.74,40.74,0,0,1,36.67,24Z"
+                        opacity="0.2"
+                      ></path>
+                      <path d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.65,48.65,0,0,0,168.1,40a46.87,46.87,0,0,0-33.74,13.7A47.87,47.87,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.3,47.79,9.57,79.77,22,98.18a110.92,110.92,0,0,0,21.89,24.2C61.43,195.2,37.45,204.41,37.2,204.51a8,8,0,0,0-3.85,11.93c.74,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.68,0,129.72-54.42,135.76-124.44l29.9-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.52-6.25,27.56-17,37.88-32.48a8,8,0,0,0-2.61-11.34c-.13-.08-12.86-7.74-24.48-25.29C54.54,124.11,48,100.38,48,73.09c16,13,45.25,33.18,78.69,38.8A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.89,30.89,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"></path>
                     </svg>
                     <div>
-                      <Heading size="4" className="text-sm font-mono">
+                      <h2 className="text-sm font-mono">
                         Twitter
-                      </Heading>
-                      <Text color="gray" className="">
+                      </h2>
+                      <p  className="">
                         Tweets about software, design & the Falcons
-                      </Text>
+                      </p>
                     </div>
                   </Flex>
                 </Card>
-                <div className="basis-2/5 flex flex-col gap-y-3 bg-white">
+                <div className="basis-2/5 flex flex-col gap-y-3">
                   <Card className="grow">
                     <Flex justify="between" className="h-full" direction="column">
                       <svg
-                        className="h-8 w-8 text-[var(--gray-10)]"
+                        className="h-8 w-8 "
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
                         viewBox="0 0 256 256"
                       >
-                        <path d="M212.62,75.17A63.7,63.7,0,0,0,206.39,26,12,12,0,0,0,196,20a63.71,63.71,0,0,0-50,24H126A63.71,63.71,0,0,0,76,20a12,12,0,0,0-10.39,6,63.7,63.7,0,0,0-6.23,49.17A61.5,61.5,0,0,0,52,104v8a60.1,60.1,0,0,0,45.76,58.28A43.66,43.66,0,0,0,92,192v4H76a20,20,0,0,1-20-20,44.05,44.05,0,0,0-44-44,12,12,0,0,0,0,24,20,20,0,0,1,20,20,44.05,44.05,0,0,0,44,44H92v12a12,12,0,0,0,24,0V192a20,20,0,0,1,40,0v40a12,12,0,0,0,24,0V192a43.66,43.66,0,0,0-5.76-21.72A60.1,60.1,0,0,0,220,112v-8A61.5,61.5,0,0,0,212.62,75.17ZM196,112a36,36,0,0,1-36,36H112a36,36,0,0,1-36-36v-8a37.87,37.87,0,0,1,6.13-20.12,11.65,11.65,0,0,0,1.58-11.49,39.9,39.9,0,0,1-.4-27.72,39.87,39.87,0,0,1,26.41,17.8A12,12,0,0,0,119.82,68h32.35a12,12,0,0,0,10.11-5.53,39.84,39.84,0,0,1,26.41-17.8,39.9,39.9,0,0,1-.4,27.72,12,12,0,0,0,1.61,11.53A37.85,37.85,0,0,1,196,104Z"></path>
+                        <path
+                          d="M208,104v8a48,48,0,0,1-48,48H136a32,32,0,0,1,32,32v40H104V192a32,32,0,0,1,32-32H112a48,48,0,0,1-48-48v-8a49.28,49.28,0,0,1,8.51-27.3A51.92,51.92,0,0,1,76,32a52,52,0,0,1,43.83,24h32.34A52,52,0,0,1,196,32a51.92,51.92,0,0,1,3.49,44.7A49.28,49.28,0,0,1,208,104Z"
+                          opacity="0.2"
+                        ></path>
+                        <path d="M208.3,75.68A59.74,59.74,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58,58,0,0,0,208.3,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.76,41.76,0,0,1,200,104Z"></path>
                       </svg>
-                      <Text className="font-mono">GitHub</Text>
+                      <h2  className="font-mono">
+                        GitHub
+                      </h2>
                     </Flex>
                   </Card>
                   <Card>
                     <Flex align="center" gap="3">
                       <svg
-                        className="h-8 w-8 text-[var(--gray-10)]"
+                        className="h-8 w-8 text-[var(--crimson-10)]"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
                         viewBox="0 0 256 256"
                       >
-                        <path d="M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm83.13,96c-1,0-2.08,0-3.12,0a172.63,172.63,0,0,0-41.39,5.06A171.26,171.26,0,0,0,156,97.39,172.34,172.34,0,0,0,188.9,70.24,83.72,83.72,0,0,1,211.13,116ZM170,55.3a148.53,148.53,0,0,1-27,21.88,173.29,173.29,0,0,0-30.58-31.71A83.52,83.52,0,0,1,170,55.3Zm-84.46.27a149.23,149.23,0,0,1,35.9,32.87A147.73,147.73,0,0,1,64,100c-5,0-10-.26-14.94-.75A84.49,84.49,0,0,1,85.53,55.57ZM44,128c0-1.73.07-3.44.17-5.14A175.15,175.15,0,0,0,64,124a171.8,171.8,0,0,0,70.84-15.22,145.82,145.82,0,0,1,8.92,19.65,170.71,170.71,0,0,0-21.52,10.44,173,173,0,0,0-53.68,48.44A83.77,83.77,0,0,1,44,128Zm43.77,73.72a149,149,0,0,1,46.46-42.06,147.2,147.2,0,0,1,16-7.94,148.52,148.52,0,0,1,2.67,28A148.66,148.66,0,0,1,150,209.06a83.81,83.81,0,0,1-62.22-7.34Zm88.29-4.89c.56-5.68.86-11.4.86-17.14a172.57,172.57,0,0,0-3.72-35.54A148.85,148.85,0,0,1,208,140c1,0,2.07,0,3.11,0A84.07,84.07,0,0,1,176.06,196.83Z"></path>
+                        <path d="M224,128a96,96,0,1,1-96-96A96,96,0,0,1,224,128Z" opacity="0.2"></path>
+                        <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm87.65,96.18Q211.83,120,208,120a168.58,168.58,0,0,0-43.94,5.84A166.52,166.52,0,0,0,150.61,96a168.32,168.32,0,0,0,38.2-31.55A87.78,87.78,0,0,1,215.65,120.18ZM176.28,54.46A151.75,151.75,0,0,1,142,82.52a169.22,169.22,0,0,0-38.63-39,88,88,0,0,1,73,10.94ZM85.65,50.88a153.13,153.13,0,0,1,42,39.18A151.82,151.82,0,0,1,64,104a154.19,154.19,0,0,1-20.28-1.35A88.39,88.39,0,0,1,85.65,50.88ZM40,128a87.73,87.73,0,0,1,.53-9.64A168.85,168.85,0,0,0,64,120a167.84,167.84,0,0,0,72.52-16.4,150.82,150.82,0,0,1,12.31,27.13,167.11,167.11,0,0,0-24.59,11.6,169.22,169.22,0,0,0-55.07,51.06A87.8,87.8,0,0,1,40,128Zm42,75a152.91,152.91,0,0,1,50.24-46.79,148.81,148.81,0,0,1,20.95-10,152.48,152.48,0,0,1,3.73,33.47,152.93,152.93,0,0,1-3.49,32.56A87.92,87.92,0,0,1,82,203Zm89.06,1.73a170,170,0,0,0,1.86-25,168.69,168.69,0,0,0-4.45-38.47A152.31,152.31,0,0,1,208,136q3.8,0,7.61.19A88.13,88.13,0,0,1,171.06,204.72Z"></path>
                       </svg>
-                      <Text className="font-mono">Dribble</Text>
+                      <p className="font-mono">Dribble</p>
                     </Flex>
                   </Card>
                 </div>
@@ -144,59 +160,71 @@ export default function Home() {
               {/*<Card className="py-5">*/}
               {/*  <div className="text-sm text-zinc-800">gbockari@creight.io</div>*/}
               {/*</Card>*/}
-              <Button variant="classic" size="4" className="w-full">
+              <Button variant="classic" size="4" className="transition-all duration-150 ease-out font-semibold w-full">
                 Send me a message
               </Button>
               <div className="flex gap-x-3">
                 <Card className="order-last basis-3/5 aspect-square flex flex-col justify-between">
                   <Flex direction="column" className="h-full" justify="between">
                     <svg
-                      className="h-8 w-8"
+                      className="h-8 w-8 text-[var(--purple-10)]"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="currentColor"
                       viewBox="0 0 256 256"
                     >
-                      <path d="M168,12A75.9,75.9,0,0,0,92.49,96.33L23.91,189.85a19.89,19.89,0,0,0,2,26l14.29,14.29a19.89,19.89,0,0,0,26,2l93.52-68.58A76,76,0,1,0,168,12Zm52,76a51.66,51.66,0,0,1-7.75,27.27L140.74,43.75A52,52,0,0,1,220,88ZM54.72,210.71l-9.43-9.43,56.19-76.63a76.46,76.46,0,0,0,29.87,29.87ZM116,88a51.63,51.63,0,0,1,7.75-27.27l71.51,71.51A52,52,0,0,1,116,88Z"></path>
+                      <path
+                        d="M104,120a24,24,0,1,1,24,24A24,24,0,0,1,104,120Zm39.75,24h-31.5a16.06,16.06,0,0,0-15.76,19.88l12.19,48A16.2,16.2,0,0,0,124.44,224h7.12a16.2,16.2,0,0,0,15.76-12.12l12.19-48A16.06,16.06,0,0,0,143.75,144Z"
+                        opacity="0.2"
+                      ></path>
+                      <path d="M154.2,138.33a32,32,0,1,0-52.4,0,24.18,24.18,0,0,0-8.76,7,23.68,23.68,0,0,0-4.3,20.49l12.18,48A24.18,24.18,0,0,0,124.44,232h7.12a24.18,24.18,0,0,0,23.52-18.15l12.18-48a23.68,23.68,0,0,0-4.3-20.49A24.18,24.18,0,0,0,154.2,138.33ZM128,104a16,16,0,1,1-16,16A16,16,0,0,1,128,104Zm23.75,57.91-12.18,48a8.18,8.18,0,0,1-8,6.09h-7.12a8.18,8.18,0,0,1-8-6.09l-12.18-48a7.71,7.71,0,0,1,1.42-6.73,8.26,8.26,0,0,1,6.58-3.18h31.5a8.26,8.26,0,0,1,6.58,3.18A7.71,7.71,0,0,1,151.75,161.91ZM72,128a56.27,56.27,0,0,0,1.76,14,8,8,0,1,1-15.49,4,72,72,0,1,1,139.46,0,8,8,0,0,1-7.74,6,8.12,8.12,0,0,1-2-.25,8,8,0,0,1-5.75-9.74A56,56,0,1,0,72,128Zm160,0a103.86,103.86,0,0,1-46.49,86.66,8,8,0,0,1-8.86-13.32,88,88,0,1,0-97.31,0A8,8,0,0,1,74.91,216a7.92,7.92,0,0,1-4.42-1.34A104,104,0,1,1,232,128Z"></path>
                     </svg>
-                    <div>
-                      <Heading size="4" className="text-sm font-mono">
-                        Podcast
-                      </Heading>
-                      <Text color="gray" className="">
-                        Tweets about software, design & the Falcons
-                      </Text>
-                    </div>
+                    <Flex direction="column" gap="1">
+                      <h2 className="text-sm font-mono">
+                        Bit by Bit
+                      </h2>
+                      <p color="gray" className="">
+                        Software development related podcast
+                      </p>
+                    </Flex>
                   </Flex>
                 </Card>
                 <div className="basis-2/5 flex flex-col gap-y-3">
-                  <Card className="order-last items-center space-x-4">
+                  <Card className="order-last">
                     <Flex align="center" gap="3">
                       <svg
-                        className="h-8 w-8 text-[var(--gray-10)]"
+                        className="h-8 w-8 text-[var(--indigo-9)]"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
                         viewBox="0 0 256 256"
                       >
-                        <path d="M216,20H40A20,20,0,0,0,20,40V216a20,20,0,0,0,20,20H216a20,20,0,0,0,20-20V40A20,20,0,0,0,216,20Zm-4,192H44V44H212ZM112,176V124a12,12,0,0,1,21.43-7.41A40,40,0,0,1,192,152v24a12,12,0,0,1-24,0V152a16,16,0,0,0-32,0v24a12,12,0,0,1-24,0ZM96,124v52a12,12,0,0,1-24,0V124a12,12,0,0,1,24,0ZM68,80A16,16,0,1,1,84,96,16,16,0,0,1,68,80Z"></path>
+                        <path
+                          d="M224,40V216a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8H216A8,8,0,0,1,224,40Z"
+                          opacity="0.2"
+                        ></path>
+                        <path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"></path>
                       </svg>
-                      <Text size="4" className="">
+                      <h2 className="">
                         Linkedin
-                      </Text>
+                      </h2>
                     </Flex>
                   </Card>
-                  <Card className="grow p-3 flex flex-col justify-between gap-y-4">
+                  <Card className="grow">
                     <Flex className="h-full" justify="between" direction="column">
                       <svg
-                        className="h8 w-8 text-[var(--gray-10)]"
+                        className="h8 w-8 text-[var(--purple-10)]"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor"
                         viewBox="0 0 256 256"
                       >
-                        <path d="M87.5,151.52l64-64a12,12,0,0,1,17,17l-64,64a12,12,0,0,1-17-17Zm131-114a60.08,60.08,0,0,0-84.87,0L103.51,67.61a12,12,0,0,0,17,17l30.07-30.06a36,36,0,0,1,50.93,50.92L171.4,135.52a12,12,0,1,0,17,17l30.08-30.06A60.09,60.09,0,0,0,218.45,37.55ZM135.52,171.4l-30.07,30.08a36,36,0,0,1-50.92-50.93l30.06-30.07a12,12,0,0,0-17-17L37.55,133.58a60,60,0,0,0,84.88,84.87l30.06-30.07a12,12,0,0,0-17-17Z"></path>
+                        <path
+                          d="M209.94,113.94l-96,96a48,48,0,0,1-67.88-67.88l96-96a48,48,0,0,1,67.88,67.88Z"
+                          opacity="0.2"
+                        ></path>
+                        <path d="M165.66,90.34a8,8,0,0,1,0,11.32l-64,64a8,8,0,0,1-11.32-11.32l64-64A8,8,0,0,1,165.66,90.34ZM215.6,40.4a56,56,0,0,0-79.2,0L106.34,70.45a8,8,0,0,0,11.32,11.32l30.06-30a40,40,0,0,1,56.57,56.56l-30.07,30.06a8,8,0,0,0,11.31,11.32L215.6,119.6a56,56,0,0,0,0-79.2ZM138.34,174.22l-30.06,30.06a40,40,0,1,1-56.56-56.57l30.05-30.05a8,8,0,0,0-11.32-11.32L40.4,136.4a56,56,0,0,0,79.2,79.2l30.06-30.07a8,8,0,0,0-11.32-11.31Z"></path>
                       </svg>
-                      <Text size="4" className="">
-                        Uses
-                      </Text>
+                      <p  className="">
+                        Collection of tools & resources
+                      </p>
                     </Flex>
                   </Card>
                 </div>
@@ -204,13 +232,12 @@ export default function Home() {
             </div>
           </div>
         </div>
-
         <div
-          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+          className="pointer-events-none absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
           aria-hidden="true"
         >
           <div
-            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#93C926] to-[#8AE8FF] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[var(--lime-10)] to-[var(--sky-10)] opacity-60 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
             style={{
               clipPath:
                 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
