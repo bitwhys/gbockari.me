@@ -56,7 +56,7 @@ export default function Home() {
             <Balancer>Software engineer, NLP enthusiast & sports data junkie.</Balancer>
           </h1>
           <div className="flex gap-x-3 max-w-6xl mx-auto">
-            <Card className="bg-white  w-[700px] shrink-0 p-4">
+            <Card className="bg-white  w-[700px] shrink-0 p-8">
               <Flex direction="column" justify="between" className="h-full relative">
                 {/*<div className="absolute bottom-0 right-0 w-1/2">*/}
                 {/*  <img src="/hero-globe.png" alt="" />*/}
